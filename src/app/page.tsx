@@ -1,11 +1,9 @@
 import Link from "next/link";
 
-import { Input } from "src/app/components/ui/input";
-import { Button } from "src/app/components/ui/button";
-import { CardContent, Card, CardHeader } from "src/app/components/ui/card";
+import { GiCoconuts } from "react-icons/gi";
 
-import { CreatePost } from "src/app/_components/create-post";
 import { api } from "src/trpc/server";
+import Image from "next/image";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -13,206 +11,140 @@ export default async function Home() {
   return (
     <>
       <div className="grid-rows-[auto 1fr auto] grid min-h-screen w-full gap-px">
-        <header className="h-[60px] w-full border-b bg-white shadow-sm dark:bg-gray-950">
-          <div className="container flex h-full items-center justify-between px-4">
-            <Link className="flex items-center space-x-2" href="#">
-              <FlagIcon className="h-6 w-6" />
-              <span className="text-lg font-semibold">Recipes</span>
+        <header className="flex h-14 items-center px-4 lg:px-6">
+          <Link className="flex items-center justify-center" href="#">
+            <GiCoconuts className="h-6 w-6" />
+            <span className="sr-only">Acme Inc</span>
+          </Link>
+          <nav className="ml-auto flex gap-4 sm:gap-6">
+            <Link
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              href="#"
+            >
+              Features
             </Link>
-            <nav className="hidden items-center space-x-4 text-sm md:flex">
-              <Link
-                className="font-medium text-gray-900 dark:text-gray-100"
-                href="#"
-              >
-                Breakfast
-              </Link>
-              <Link
-                className="font-medium text-gray-500 dark:text-gray-500"
-                href="#"
-              >
-                Lunch
-              </Link>
-              <Link
-                className="font-medium text-gray-500 dark:text-gray-500"
-                href="#"
-              >
-                Dinner
-              </Link>
-              <Link
-                className="font-medium text-gray-500 dark:text-gray-500"
-                href="#"
-              >
-                Dessert
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Link
-                className="text-sm font-medium text-gray-500 dark:text-gray-500"
-                href="#"
-              >
-                Sign in
-              </Link>
-              <Link
-                className="rounded-lg border border-indigo-600 bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-600 transition-colors hover:bg-indigo-100 dark:border-indigo-400 dark:bg-indigo-900 dark:text-indigo-400"
-                href="#"
-              >
-                Sign up
-              </Link>
-            </div>
-          </div>
+            <Link
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              href="#"
+            >
+              Pricing
+            </Link>
+            <Link
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              href="#"
+            >
+              About
+            </Link>
+            <Link
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              href="#"
+            >
+              Contact
+            </Link>
+          </nav>
         </header>
         <main className="flex flex-col gap-4 p-4 md:gap-8">
-          <div className="grid md:grid-cols-3 md:gap-4">
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <h1 className="text-2xl font-bold">Breakfast</h1>
-              <p className="text-gray-500 dark:text-gray-500">
-                Rise and shine with these delicious breakfast recipes.
-              </p>
+          <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+            <div className="container flex flex-col items-center space-y-4 px-4 text-center md:flex-row md:space-x-10 md:space-y-0 md:px-6 lg:space-x-20">
+              <div className="space-y-2">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+                  Cooking Inspiration
+                </h1>
+                <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Discover new recipes and cooking tips. From quick and easy
+                  meals to gourmet dishes.
+                </p>
+              </div>
+              <Image
+                alt="Hero"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center md:w-[500px] lg:order-last"
+                height="400"
+                src="https://source.unsplash.com/random/900×700/?fruit,food"
+                width="600"
+              />
             </div>
-            <form className="flex flex-col gap-2 md:justify-end">
-              <div className="relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
-                <SearchIcon className="absolute inset-y-0 left-0 z-10 m-1.5 h-5 w-5 text-gray-400 dark:text-gray-600" />
-                <Input
-                  className="w-[250px] rounded-lg border-0 pl-8 sm:w-[200px]"
-                  placeholder="Search for recipes"
-                  type="search"
+          </section>
+          <section className="w-full border-t py-12 md:py-24 lg:py-32">
+            <div className="container grid items-center gap-4 px-4 text-center sm:grid-cols-2 sm:gap-10 md:px-6 lg:grid-cols-3 lg:gap-6 xl:gap-10">
+              <Link className="aspect-card overflow-hidden rounded-xl" href="#">
+                <Image
+                  alt="Breakfast"
+                  className="object-cover object-center"
+                  height="300"
+                  src="https://source.unsplash.com/random/900×700/?breakfast"
+                  style={{
+                    aspectRatio: "400/300",
+                    objectFit: "cover",
+                  }}
+                  width="400"
                 />
-              </div>
-            </form>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <Link
-              className="overflow-hidden rounded-lg shadow-sm transition-colors hover:shadow-md"
-              href="#"
-            >
-              <div className="aspect-[4/3] w-full bg-gray-100 dark:bg-gray-800" />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold leading-none">
-                  Blueberry Pancakes
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-500">
-                  Fluffy pancakes filled with juicy blueberries.
-                </p>
-              </div>
-            </Link>
-            <Link
-              className="overflow-hidden rounded-lg shadow-sm transition-colors hover:shadow-md"
-              href="#"
-            >
-              <div className="aspect-[4/3] w-full bg-gray-100 dark:bg-gray-800" />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold leading-none">
-                  Avocado Toast
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-500">
-                  Simple and delicious avocado toast with a sprinkle of sea
-                  salt.
-                </p>
-              </div>
-            </Link>
-            <Link
-              className="overflow-hidden rounded-lg shadow-sm transition-colors hover:shadow-md"
-              href="#"
-            >
-              <div className="aspect-[4/3] w-full bg-gray-100 dark:bg-gray-800" />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold leading-none">
-                  Belgian Waffles
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-500">
-                  Crispy on the outside, light and fluffy on the inside waffles.
-                </p>
-              </div>
-            </Link>
-            <Link
-              className="overflow-hidden rounded-lg shadow-sm transition-colors hover:shadow-md"
-              href="#"
-            >
-              <div className="aspect-[4/3] w-full bg-gray-100 dark:bg-gray-800" />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold leading-none">
-                  Breakfast Burrito
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-500">
-                  A hearty breakfast wrapped in a warm tortilla.
-                </p>
-              </div>
-            </Link>
-          </div>
+                <div className="p-4">
+                  <h3 className="font-bold">Breakfast</h3>
+                  <p className="text-sm text-gray-500">Start your day right</p>
+                </div>
+              </Link>
+              <Link className="aspect-card overflow-hidden rounded-xl" href="#">
+                <Image
+                  alt="Lunch"
+                  className="object-cover object-center"
+                  height="300"
+                  src="https://source.unsplash.com/random/900×700/?Lunch"
+                  style={{
+                    aspectRatio: "400/300",
+                    objectFit: "cover",
+                  }}
+                  width="400"
+                />
+                <div className="p-4">
+                  <h3 className="font-bold">Lunch</h3>
+                  <p className="text-sm text-gray-500">
+                    Delicious mid-day meals
+                  </p>
+                </div>
+              </Link>
+              <Link className="aspect-card overflow-hidden rounded-xl" href="#">
+                <Image
+                  alt="Dinner"
+                  className="object-cover object-center"
+                  height="300"
+                  src="https://source.unsplash.com/random/900×700/?Dinner"
+                  style={{
+                    aspectRatio: "400/300",
+                    objectFit: "cover",
+                  }}
+                  width="400"
+                />
+                <div className="p-4">
+                  <h3 className="font-bold">Dinner</h3>
+                  <p className="text-sm text-gray-500">
+                    Family dinner favorites
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </section>
         </main>
-        <footer className="grid h-[100px] items-center gap-4 px-4 text-sm dark:text-gray-400 md:grid-cols-2">
-          <div className="text-center md:text-left">
-            <nav className="flex flex-col items-center space-x-0 space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-              <Link
-                className="text-indigo-600 underline dark:text-indigo-400"
-                href="#"
-              >
-                Home
-              </Link>
-              <Link className="text-gray-500 dark:text-gray-500" href="#">
-                Recipes
-              </Link>
-              <Link className="text-gray-500 dark:text-gray-500" href="#">
-                Contact
-              </Link>
-            </nav>
-            <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">
-              © 2023 Recipes. All rights reserved.
-            </p>
-          </div>
-          <div className="flex justify-center space-x-4 md:justify-end">
+        <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            © 2024 Acme Inc. All rights reserved.
+          </p>
+          <nav className="flex gap-4 sm:ml-auto sm:gap-6">
             <Link
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100"
+              className="text-xs underline-offset-4 hover:underline"
+              href="#"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              className="text-xs underline-offset-4 hover:underline"
               href="#"
             >
               Privacy
             </Link>
-            <Link
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100"
-              href="#"
-            >
-              Terms
-            </Link>
-          </div>
+          </nav>
         </footer>
       </div>
     </>
-  );
-}
-
-async function CrudShowcase() {
-  const latestPost = await api.post.getLatest();
-
-  return (
-    <div className="w-full max-w-xs">
-      {latestPost ? (
-        <p className="truncate">Your most recent post: {latestPost.name}</p>
-      ) : (
-        <p>You have no posts yet.</p>
-      )}
-
-      <CreatePost />
-    </div>
-  );
-}
-
-function FlagIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-      <line x1="4" x2="4" y1="22" y2="15" />
-    </svg>
   );
 }
 

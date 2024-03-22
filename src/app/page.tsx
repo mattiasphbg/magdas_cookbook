@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { GiCoconuts } from "react-icons/gi";
-
 import { api } from "src/trpc/server";
 import Image from "next/image";
 
@@ -11,38 +9,6 @@ export default async function Home() {
   return (
     <>
       <div className="grid-rows-[auto 1fr auto] grid min-h-screen w-full gap-px">
-        <header className="flex h-14 items-center px-4 lg:px-6">
-          <Link className="flex items-center justify-center" href="#">
-            <GiCoconuts className="h-6 w-6" />
-            <span className="sr-only">Acme Inc</span>
-          </Link>
-          <nav className="ml-auto flex gap-4 sm:gap-6">
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="#"
-            >
-              Recipes
-            </Link>
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="#"
-            >
-              Pricing
-            </Link>
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="#"
-            >
-              About
-            </Link>
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="#"
-            >
-              Contact
-            </Link>
-          </nav>
-        </header>
         <main className="flex flex-col gap-4 p-4 md:gap-8">
           <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
             <div className="container flex flex-col items-center space-y-4 px-4 text-center md:flex-row md:space-x-10 md:space-y-0 md:px-6 lg:space-x-20">
@@ -59,14 +25,17 @@ export default async function Home() {
                 alt="Hero"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center md:w-[500px] lg:order-last"
                 height="400"
-                src="https://source.unsplash.com/random/900×700/?fruit,food"
+                src="https://source.unsplash.com/random/900×700/?food"
                 width="600"
               />
             </div>
           </section>
           <section className="w-full border-t py-12 md:py-24 lg:py-32">
             <div className="container grid items-center gap-4 px-4 text-center sm:grid-cols-2 sm:gap-10 md:px-6 lg:grid-cols-3 lg:gap-6 xl:gap-10">
-              <Link className="aspect-card overflow-hidden rounded-xl" href="#">
+              <Link
+                className="aspect-card overflow-hidden rounded-xl"
+                href="/breakfast"
+              >
                 <Image
                   alt="Breakfast"
                   className="object-cover object-center"
@@ -83,7 +52,10 @@ export default async function Home() {
                   <p className="text-sm text-gray-500">Start your day right</p>
                 </div>
               </Link>
-              <Link className="aspect-card overflow-hidden rounded-xl" href="#">
+              <Link
+                className="aspect-card overflow-hidden rounded-xl"
+                href="/lunch"
+              >
                 <Image
                   alt="Lunch"
                   className="object-cover object-center"
@@ -102,7 +74,10 @@ export default async function Home() {
                   </p>
                 </div>
               </Link>
-              <Link className="aspect-card overflow-hidden rounded-xl" href="#">
+              <Link
+                className="aspect-card overflow-hidden rounded-xl"
+                href="/dinner"
+              >
                 <Image
                   alt="Dinner"
                   className="object-cover object-center"
@@ -124,46 +99,7 @@ export default async function Home() {
             </div>
           </section>
         </main>
-        <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t px-4 py-6 sm:flex-row md:px-6">
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            © 2024 Magdas Cockbook. All rights reserved.
-          </p>
-          <nav className="flex gap-4 sm:ml-auto sm:gap-6">
-            <Link
-              className="text-xs underline-offset-4 hover:underline"
-              href="#"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              className="text-xs underline-offset-4 hover:underline"
-              href="#"
-            >
-              Privacy
-            </Link>
-          </nav>
-        </footer>
       </div>
     </>
-  );
-}
-
-function SearchIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
   );
 }

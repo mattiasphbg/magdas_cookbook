@@ -3,12 +3,12 @@ import { GiCoconuts } from "react-icons/gi";
 export default function Header() {
   return (
     <>
-      <header className="flex h-14 items-center px-4 lg:px-6">
+      <header className="mb-4 flex h-14 items-center px-4 lg:px-6">
         <Link className="flex items-center justify-center" href="/">
-          <GiCoconuts className="h-6 w-6" />
+          <GiCoconuts className="h-8 w-8 text-orange-900" />
           <span className="sr-only">Magadas Cockbook</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="ml-auto flex gap-4 text-black sm:gap-6">
           <Link
             className="text-sm font-medium underline-offset-4 hover:underline"
             href="/recipes"

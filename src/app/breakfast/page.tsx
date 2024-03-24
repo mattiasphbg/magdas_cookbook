@@ -24,9 +24,9 @@ export default function Page() {
           </div>
         </div>
         <div className="container px-4 md:px-6">
-          <div className="xl:grid-cols-3xl grid grid-cols-1 gap-6 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="xl:grid-cols-3xl grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Link
-              className="group overflow-hidden rounded-lg border border-gray-200 border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
+              className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
               href="#"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -52,7 +52,7 @@ export default function Page() {
               </div>
             </Link>
             <Link
-              className="group overflow-hidden rounded-lg border border-gray-200 border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
+              className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
               href="#"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -78,7 +78,7 @@ export default function Page() {
               </div>
             </Link>
             <Link
-              className="group overflow-hidden rounded-lg border border-gray-200 border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
+              className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
               href="#"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -104,7 +104,7 @@ export default function Page() {
               </div>
             </Link>
             <Link
-              className="group overflow-hidden rounded-lg border border-gray-200 border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
+              className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
               href="#"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -130,7 +130,7 @@ export default function Page() {
               </div>
             </Link>
             <Link
-              className="group overflow-hidden rounded-lg border border-gray-200 border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
+              className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
               href="#"
             >
               <div className="relative aspect-[4/3] overflow-hidden">

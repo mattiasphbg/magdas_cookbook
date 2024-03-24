@@ -15,6 +15,16 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         { title: "description", name: "description", type: "string" },
         { title: "Image", name: "image", type: "image" },
         {
+          title: "Meals",
+          name: "meals",
+          type: "string",
+          options: {
+            list: ["breakfast", "lunch", "dinner"],
+
+            validation: (Rule) => Rule.min(1), // Make sure at least one meal is selected
+          },
+        },
+        {
           title: "Instructions",
           name: "instructions",
           type: "array",

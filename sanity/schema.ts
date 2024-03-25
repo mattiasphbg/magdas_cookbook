@@ -25,6 +25,25 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           },
         },
         {
+          title: "ingredients",
+          name: "ingredients",
+          type: "array",
+          of: [
+            {
+              title: "item",
+              name: "item",
+              type: "object",
+              fields: [
+                {
+                  title: "Instruction",
+                  name: "instruction",
+                  type: "text",
+                },
+              ],
+            },
+          ],
+        },
+        {
           title: "Instructions",
           name: "instructions",
           type: "array",

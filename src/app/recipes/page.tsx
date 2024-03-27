@@ -7,7 +7,7 @@ type Post = {
     current: string;
   };
 };
-
+//
 export default function Page() {
   const posts = await client.fetch<Post[]>(`*[_type == "post"]`);
   return (

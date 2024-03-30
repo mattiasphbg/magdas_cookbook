@@ -4,7 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { client } from "../../../../sanity/lib/client";
 import { useEffect, useState } from "react";
-function Page({ params }: { params: { id: string } }) {
+
+function RecipesPage({ params }: { params: { id: string } }) {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -70,12 +71,13 @@ function Page({ params }: { params: { id: string } }) {
                         {recipe.imageUrls[i] && (
                           <Image
                             alt=""
-                            className="aspect-[2/1] overflow-hidden rounded-lg border border-gray-200 object-cover dark:border-gray-800"
+                            className="mt-8 aspect-[2/1] overflow-hidden rounded-lg border border-gray-200 object-cover dark:border-gray-800"
                             height={320}
                             src={recipe.imageUrls[i]}
                             width={640}
                           />
                         )}
+                        <hr className="my-12 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
                       </li>
                     </div>
                   ))}
@@ -89,4 +91,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default Page;
+export default RecipesPage;

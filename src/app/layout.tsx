@@ -1,13 +1,13 @@
 import "src/styles/globals.css";
 
-import { Inter } from "next/font/google";
+import { Inter, Roboto, Abhaya_Libre } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import { TRPCReactProvider } from "src/trpc/react";
 
 const inter = Inter({
-  subsets: ["cyrillic"],
+  subsets: ["latin"],
   variable: "--font-sans",
 });
 
@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable} text-clOne`}>
+    <html lang="en" className={inter.className}>
+      <body className={`text-clOne`}>
         <Header />
         <TRPCReactProvider>{children}</TRPCReactProvider>
         <Footer />

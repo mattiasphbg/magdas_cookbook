@@ -25,8 +25,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "string",
           options: {
             list: ["breakfast", "lunch", "dinner"],
-
-            validation: (Rule) => Rule.min(1), // Make sure at least one meal is selected
           },
         },
         {

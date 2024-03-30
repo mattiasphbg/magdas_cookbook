@@ -12,6 +12,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           name: "title",
           type: "string",
         },
+        {
+          title: "subtitle",
+          name: "subTitle",
+          type: "string",
+        },
         { title: "description", name: "description", type: "string" },
         { title: "Image", name: "image", type: "image" },
         {

@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import { TRPCReactProvider } from "src/trpc/react";
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["cyrillic"],
   variable: "--font-sans",
 });
 

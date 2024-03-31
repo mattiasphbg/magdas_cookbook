@@ -5,8 +5,26 @@ import Image from "next/image";
 import { client } from "../../../../sanity/lib/client";
 import { useEffect, useState } from "react";
 
+type MealDetail = {
+  _id: string;
+  title: string;
+  subTitle: string;
+  description: string;
+  meals: "breakfast" | "lunch" | "dinner";
+  imageUrl: string;
+  instructions: {
+    stepNumber: number;
+    instruction: string;
+    image?: string;
+  }[];
+  imageUrls: string[];
+  ingredients: {
+    instruction: string;
+  }[];
+};
+
 function RecipesPage({ params }: { params: { id: string } }) {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<MealDetail[]>([]);
 
   useEffect(() => {
     client
@@ -21,14 +39,14 @@ function RecipesPage({ params }: { params: { id: string } }) {
           ingredients
         }`,
       )
-      .then((recipes) => {
+      .then((recipes: MealDetail[]) => {
         console.log(recipes);
         setRecipes(recipes);
       })
       .catch((error) => {
         console.error("Error fetching articles", error);
       });
-  }, []);
+  });
 
   return (
     <>
@@ -73,7 +91,7 @@ function RecipesPage({ params }: { params: { id: string } }) {
                             alt=""
                             className="mt-8 aspect-[2/1] overflow-hidden rounded-lg border border-gray-200 object-cover dark:border-gray-800"
                             height={320}
-                            src={recipe.imageUrls[i]}
+                            src={`${recipe.imageUrls[i]}`}
                             width={640}
                           />
                         )}

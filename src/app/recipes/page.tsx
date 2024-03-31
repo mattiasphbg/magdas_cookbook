@@ -4,8 +4,27 @@ import Link from "next/link";
 import Image from "next/image";
 import { client } from "../../../sanity/lib/client";
 import { useEffect, useState } from "react";
+
+type MealDetail = {
+  _id: string;
+  title: string;
+  subTitle: string;
+  description: string;
+  meals: "breakfast" | "lunch" | "dinner";
+  imageUrl: string;
+  instructions: {
+    stepNumber: number;
+    instruction: string;
+    image?: string;
+  }[];
+  imageUrls: string[];
+  ingredients: {
+    instruction: string;
+  }[];
+};
+
 export default function Page() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<MealDetail[]>([]);
 
   useEffect(() => {
     client
@@ -19,8 +38,7 @@ export default function Page() {
 
       }`,
       )
-      .then((recipes) => {
-        console.log(recipes);
+      .then((recipes: MealDetail[]) => {
         setRecipes(recipes);
       })
       .catch((error) => {

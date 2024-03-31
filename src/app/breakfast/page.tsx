@@ -8,8 +8,16 @@ import { useEffect, useState } from "react";
 import { Input } from "src/app/components/ui/input";
 import Link from "next/link";
 
+type Meal = {
+  title: string;
+  _id: string;
+  subTitle: string;
+  description: string;
+  imageUrl: string;
+};
+
 export default function BreakfastPage() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Meal[]>([]);
 
   useEffect(() => {
     client
@@ -22,7 +30,7 @@ export default function BreakfastPage() {
           "imageUrl": image.asset->url,
         }`,
       )
-      .then((recipes) => {
+      .then((recipes: Meal[]) => {
         console.log(recipes);
         setRecipes(recipes);
       })
@@ -57,7 +65,7 @@ export default function BreakfastPage() {
             {recipes.map((recipe, index) => (
               <div key={index}>
                 <Link
-                  className="group overflow-hidden rounded-lg border border-gray-200 border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
+                  className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
                   href={`recipes/${recipe._id}`}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
@@ -90,7 +98,7 @@ export default function BreakfastPage() {
   );
 }
 
-function ChevronRightIcon(props) {
+function ChevronRightIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

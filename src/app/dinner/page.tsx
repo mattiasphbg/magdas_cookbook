@@ -8,8 +8,26 @@ import { useEffect, useState } from "react";
 import { Input } from "src/app/components/ui/input";
 import Link from "next/link";
 
+type MealDetail = {
+  _id: string;
+  title: string;
+  subTitle: string;
+  description: string;
+  meals: "breakfast" | "lunch" | "dinner";
+  imageUrl: string;
+  instructions: {
+    stepNumber: number;
+    instruction: string;
+    image?: string;
+  }[];
+  imageUrls: string[];
+  ingredients: {
+    instruction: string;
+  }[];
+};
+
 export default function DinnerPage() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<MealDetail[]>([]);
 
   useEffect(() => {
     client
@@ -22,7 +40,7 @@ export default function DinnerPage() {
           "imageUrl": image.asset->url,
         }`,
       )
-      .then((recipes) => {
+      .then((recipes: MealDetail[]) => {
         console.log(recipes);
         setRecipes(recipes);
       })
@@ -54,11 +72,11 @@ export default function DinnerPage() {
           </div>
         </div>
         <div className="container px-4 md:px-6">
-          <div className="xl:grid-cols-3xl grid grid-cols-1 gap-6 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="xl:grid-cols-3xl grid grid-cols-1  gap-6 md:grid-cols-2 lg:grid-cols-3">
             {recipes.map((recipe, index) => (
               <div key={index}>
                 <Link
-                  className="group overflow-hidden rounded-lg border border-gray-200 border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
+                  className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm hover:shadow-md dark:border-gray-800"
                   href={`recipes/${recipe._id}`}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
@@ -91,7 +109,7 @@ export default function DinnerPage() {
   );
 }
 
-function ChevronRightIcon(props) {
+function ChevronRightIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

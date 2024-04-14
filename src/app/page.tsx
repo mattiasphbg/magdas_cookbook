@@ -27,6 +27,7 @@ export default async function Home() {
                 height="400"
                 src="https://source.unsplash.com/random/900×700/?food"
                 width="600"
+                unoptimized
               />
             </div>
           </section>
@@ -46,6 +47,7 @@ export default async function Home() {
                     objectFit: "cover",
                   }}
                   width="400"
+                  unoptimized
                 />
                 <div className="p-4">
                   <h3 className="font-bold">Breakfast</h3>
@@ -66,6 +68,7 @@ export default async function Home() {
                     objectFit: "cover",
                   }}
                   width="400"
+                  unoptimized
                 />
                 <div className="p-4">
                   <h3 className="font-bold">Lunch</h3>
@@ -88,6 +91,7 @@ export default async function Home() {
                     objectFit: "cover",
                   }}
                   width="400"
+                  unoptimized
                 />
                 <div className="p-4">
                   <h3 className="font-bold">Dinner</h3>
